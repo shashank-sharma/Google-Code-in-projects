@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<body>
+
+<form>
+Select your caregory
+<select id="mySelect">
+  <option value="country">Country</option>
+  <option value="fruits">fruits</option>
+  <option value="programming">Programming</option>
+  <option value="color">Color</option>
+  <option value="animals">animals</option>
+</select>
+</form>
+
+<p>Click to START!</p>
+
+<button type="button" onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+<p id="demo1"></p>
+<p id="demo2"></p>
+<p id="demo4" ></p>
+<p id="demo5" ></p>
+<center><h1 id="div1">Let's Play Hangman<h1/></center>
+<div id="div2"></div>
+<script>
+console.log("Welcome");
+var programming = ["ruby", "javascript", "python", "java", "swift", "jquery"];
+var fruit = ["apple", "mango", "banana", "grapes"];
+var color = ["red","yellow","orange","blue","white"];
+var country = ["india","germany","italy","japan"];
+var animals = ["tiger","lion","snake"];
+var test;   //GLOBAL
+var boo;
+  var counting = 5;
+//Function -----------------------------------
+  
+function Common(){
+
+boo = blank();
+        for(var i=0;i<test.length;i++)
+        { var count = test.charAt(i)
+        if(count === "a"||count === "e"||count === "i"||count === "o"||count === "u"||count === "A"||count === "E"||count === "I"||count === "O"||count === "U")
+        {
+           //var sha = boo.charAt(i);
+           // var res = str.replace("Microsoft", "W3Schools"); 
+           boo = boo.split('');
+           boo[i] = count;
+           boo = boo.join('');
+
+        }
+     
+     }
+     document.getElementById("div1").innerHTML = boo;
+
+};
+
+var blank_name;
+function blank(){
+  var blank = "";
+  for(var i=0;i<test.length;i++)
+  {
+  blank = "-" + blank;
+}
+return blank;
+blank = "";
+};
+function myFunction() {
+
+   if(document.getElementById("mySelect").value === "programming")
+    {
+
+    document.getElementById("demo").innerHTML = "Here is your first word related Programming";
+    test= programming[Math.floor((Math.random() * programming.length) + 0)];                        
+    Common();
+    }
+else if(document.getElementById("mySelect").value === "country")
+    {
+
+    document.getElementById("demo").innerHTML = "Here is your first word related Country";
+    test= country[Math.floor((Math.random() * country.length) + 0)];
+    Common();
+    }
+ else if(document.getElementById("mySelect").value === "fruits")
+    {
+
+    document.getElementById("demo").innerHTML = "Here is your first word related Fruits";
+    test= fruits[Math.floor((Math.random() * fruits.length) + 0)];
+    Common();
+    }
+    else if(document.getElementById("mySelect").value === "color")
+    {
+
+    document.getElementById("demo").innerHTML = "Here is your first word related Color";
+    test= color[Math.floor((Math.random() * color.length) + 0)];
+    Common();
+    }
+    else if(document.getElementById("mySelect").value === "animals")
+    {
+
+    document.getElementById("demo").innerHTML = "Here is your first word related Animals";
+    test= animals[Math.floor((Math.random() * animals.length) + 0)];
+    Common();
+    }
+
+
+else {
+	
+    document.getElementById("demo1").innerHTML = "ERROR";
+} 
+//Function ---------------------------------------
+};
+
+
+function myFunctions() {
+
+    var x = document.getElementById("myText").value;
+    //document.getElementById("div2").innerHTML = x;
+//---------------------------------------------------------
+    if(counting > 1)
+    {
+    for(var j=0;j<test.length;j++)
+    {
+       var count = test.charAt(j)
+       if(boo.charAt(j) === "-")
+       {
+          if(count === x)
+          {
+           boo = boo.split('');
+           boo[j] = count;
+           boo = boo.join('');
+           break;
+          }
+          else{
+              --counting;
+              break;
+          }
+       }
+      }
+    }
+    else{
+      document.getElementById("div4").innerHTML = "You Loose! :("
+    }
+      document.getElementById("div1").innerHTML = boo; 
+      if(boo === test)
+      {
+        document.getElementById("div4").innerHTML = "You did it :D Win!"
+        document.getElementById("div6").innerHTML = "Click on Try it to start again"
+
+      }  
+        document.getElementById("div5").innerHTML = ("You have Currently " + counting + " Lives");    
+
+//----------------------------------------------------------
+};
+</script>
+<h3>Please enter your alphabet here in this input box</h3>
+<input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" value = "Enter">
+<button onclick="myFunctions()">Sure</button>
+<center><h1 id = "div4" ></h1></center>
+<center><h3 id = "div4" ></h3></center>
+<h3 id = "div5" ></h3>
+</body>
+</html>
