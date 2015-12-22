@@ -28,7 +28,7 @@ Select your caregory
 <script>
 console.log("Welcome");
 var programming = ["ruby", "javascript", "python", "java", "swift", "jquery"];
-var fruit = ["apple", "mango", "banana", "grapes"];
+var fruits = ["apple", "mango", "banana", "grapes"];
 var color = ["red","yellow","orange","blue","white"];
 var country = ["india","germany","italy","japan"];
 var animals = ["tiger","lion","snake"];
@@ -133,9 +133,14 @@ function myFunctions() {
            boo = boo.join('');
            break;
           }
-          else{
-              --counting;
+          else if(x === "a"||x === "e"||x === "i"||x === "o"||x === "u"){
+            document.getElementById("div7").innerHTML = "Error You entered vowels no lives deducted"
+              
               break;
+          }
+          else{
+            --counting;
+            break;
           }
        }
       }
@@ -156,8 +161,9 @@ function myFunctions() {
 };
 </script>
 <h3>Please enter your alphabet here in this input box</h3>
-<input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" value = "Enter">
+<input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" placeholder="Type your alphabet">
 <button onclick="myFunctions()">Sure</button>
+<h3 id = "div7" ></h3>
 <center><h1 id = "div4" ></h1></center>
 <center><h3 id = "div4" ></h3></center>
 <h3 id = "div5" ></h3>
