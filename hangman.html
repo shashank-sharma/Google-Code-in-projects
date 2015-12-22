@@ -34,6 +34,8 @@ var country = ["india","germany","italy","japan"];
 var animals = ["tiger","lion","snake"];
 var test;   //GLOBAL
 var boo;
+var record = "";
+
   var counting = 5;
 //Function -----------------------------------
   
@@ -69,6 +71,9 @@ blank = "";
 };
 function myFunction() {
 
+    record = "";
+    document.getElementById("div4").innerHTML = "";
+    document.getElementById("div6").innerHTML = "";
    if(document.getElementById("mySelect").value === "programming")
     {
 
@@ -115,7 +120,8 @@ else {
 
 
 function myFunctions() {
-
+    document.getElementById("div7").innerHTML = "";
+    document.getElementById("div10").innerHTML = ""
     var x = document.getElementById("myText").value;
     //document.getElementById("div2").innerHTML = x;
 //---------------------------------------------------------
@@ -134,16 +140,28 @@ function myFunctions() {
            break;
           }
           else if(x === "a"||x === "e"||x === "i"||x === "o"||x === "u"){
-            document.getElementById("div7").innerHTML = "Error You entered vowels no lives deducted"
+            document.getElementById("div7").innerHTML = "Error You entered vowels: No lives deducted"
               
               break;
           }
+        
           else{
             --counting;
             break;
           }
        }
       }
+      for(var k=0;k<record.length;k++)
+      {
+        if(x===record.charAt(k))
+        {
+          document.getElementById("div10").innerHTML = "Error You entered it twice: No lives deducted"
+         ++counting;
+          break;
+        }
+      }
+            record = record + x;
+      console.log(record + " After record --------------- 4")
     }
     else{
       document.getElementById("div4").innerHTML = "You Loose! :("
@@ -158,14 +176,16 @@ function myFunctions() {
         document.getElementById("div5").innerHTML = ("You have Currently " + counting + " Lives");    
 
 //----------------------------------------------------------
+     
 };
 </script>
 <h3>Please enter your alphabet here in this input box</h3>
 <input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" placeholder="Type your alphabet">
 <button onclick="myFunctions()">Sure</button>
 <h3 style="color:red;" id = "div7" ></h3>
+<h3 style="color:red;" id = "div10" ></h3>
 <center><h1 id = "div4" ></h1></center>
-<center><h3 id = "div4" ></h3></center>
+<center><h3 id = "div6" ></h3></center>
 <h3 id = "div5" ></h3>
 </body>
 </html>
