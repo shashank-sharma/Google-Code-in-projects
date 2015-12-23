@@ -77,7 +77,8 @@ function myFunction() {
     document.getElementById("div6").innerHTML = "";
     document.getElementById("div10").innerHTML = "";
     document.getElementById("div5").innerHTML = "";
-    document.getElementById("div7").innerHTML = "";
+    document.getElementById("div11").innerHTML = "";
+
    if(document.getElementById("mySelect").value === "programming")
     {
 
@@ -169,7 +170,8 @@ function myFunctions() {
     }
     else{
       document.getElementById("div4").innerHTML = "You Loose! :("
-    }
+      document.getElementById("div11").innerHTML = ("Answer is : " + test);
+          }
       document.getElementById("div1").innerHTML = boo; 
       if(boo === test)
       {
@@ -189,6 +191,8 @@ function myFunctions() {
 <h3 style="color:red;" id = "div7" ></h3>
 <h3 style="color:red;" id = "div10" ></h3>
 <center><h1 id = "div4" ></h1></center>
+<br>
+<center><h1 id = "div11" ></h1></center>
 <center><h3 id = "div6" ></h3></center>
 <h3 id = "div5" ></h3>
 </body>
