@@ -1,8 +1,47 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<body>
+<style>
+#header {
+    background-color:black;
+    color:white;
+    text-align:center;
+    padding:5px;
+}       
+#section {
+    width:100%;
+    float:left;
+    padding:10px;    
+}
+#footer {
+    background-color:black;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;    
+}
+div.header {
+width: absolute;
+height: absolute;
+background-color: #fff;
+box-shadow: 5px 5px 10px 10px #000;
+}
+div.hey {
+width: absolute;
+height: absolute;
+background-color: #fff;
+box-shadow: 5px 5px 10px 10px #000;
+}
+</style>
 
+<body>
+<div id="header" class = "header">
+<h1>Hangman Game in Javascript</h1>
+</div>
+<div id="section">
+<br>
+<br>
+<div class="hey" style="background-color:black; color:white; padding:20px;">
 <form>
 Select your caregory
 <select id="mySelect">
@@ -17,7 +56,7 @@ Select your caregory
 <p>Click to START!</p>
 
 <button type="button" onclick="myFunction()">Try it</button>
-
+</div>
 <p id="demo"></p>
 <p id="demo1"></p>
 <p id="demo2"></p>
@@ -25,6 +64,42 @@ Select your caregory
 <p id="demo5" ></p>
 <center><h1 id="div1">Let's Play Hangman<h1/></center>
 <div id="div2"></div>
+<br>
+<div class="hey" style="background-color:black; color:white; padding:20px;">
+<h3>Please enter your alphabet here in this input box</h3>
+<input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" placeholder="Type your alphabet">
+<button onclick="myFunctions()">Sure</button>
+<h3 style="color:red;" id = "div7" ></h3>
+<h3 style="color:red;" id = "div10" ></h3>
+<center><h1 id = "div4" ></h1></center>
+<br>
+<center><h1 id = "div11" ></h1></center>
+<center><h3 id = "div6" ></h3></center>
+<h3 style="color:white;" id = "div5" ></h3>
+</div>
+</div>
+<br>
+<br>
+<br>
+<div>
+<a href='https://plus.google.com/u/0/+ShashankSharma98'><img alt='Google+' height='35' src='http://i67.tinypic.com/zwhs01.png' title='G+ Profile' width='35'/></a>
+
+<a href='https://github.com/shashank-sharma/'><img alt='Github' height='35' src='http://i67.tinypic.com/hsjr5i.png' title='GitHub Profile' width='35'/></a>
+
+<a href='https://www.facebook.com/shashank.sharma.902'><img alt='Facebook' height='35' src='http://i63.tinypic.com/34xqs8l.jpg' title='Facebook Profile' width='35'/></a>
+
+<a href='http://stackoverflow.com/users/3523510/shashank'><img alt='Stackoverflow' height='35' src='http://i65.tinypic.com/8wckzc.png' title='Stackoverflow Profile' width='35'/></a>
+
+
+
+
+</div>
+<br>
+<br>
+<div id="footer" class = "header">
+</div>
+</body>
+
 <script>
 console.log("Welcome");
 var programming = ["ruby", "javascript", "python", "java", "swift", "jquery"];
@@ -185,15 +260,5 @@ function myFunctions() {
      
 };
 </script>
-<h3>Please enter your alphabet here in this input box</h3>
-<input type="text" id="myText" title="Enter any alphabet" name="Type any Alphabet" placeholder="Type your alphabet">
-<button onclick="myFunctions()">Sure</button>
-<h3 style="color:red;" id = "div7" ></h3>
-<h3 style="color:red;" id = "div10" ></h3>
-<center><h1 id = "div4" ></h1></center>
-<br>
-<center><h1 id = "div11" ></h1></center>
-<center><h3 id = "div6" ></h3></center>
-<h3 id = "div5" ></h3>
-</body>
+
 </html>
