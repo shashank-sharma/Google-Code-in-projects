@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<style>
+div.hey1 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow:
+        0 0 60px 30px #fff,  /* inner white */
+        0 0 100px 60px #FFFF00, /* middle yellow */
+        0 0 140px 90px #0ff; /* outer cyan */
+}
+div.hey2 {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow:
+        0 0 60px 30px #fff,  /* inner white */
+        0 0 100px 60px #FFFF00, /* middle yellow */
+        0 0 140px 90px #0ff; /* outer cyan */
+}
+div.hey3 {
+    width: 10px;
+    position: fixed;
+    right: 0;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow:
+        0 0 60px 30px #fff,  /* inner white */
+        0 0 100px 60px #FFFF00, /* middle yellow */
+        0 0 140px 90px #0ff; /* outer cyan */
+}
+div.hey4{
+    position:fixed;
+    bottom:40px;
+    width: absolute;
+height: absolute;
+background-color:   #808080;
+box-shadow: 0px 0px 10px 10px   #808080;
+
+
+}
+div.hey5{
+    position:fixed;
+    bottom:40px;
+    width: absolute;
+    left:600px;
+height: absolute;
+background-color:   #808080;
+box-shadow: 0px 0px 10px 10px   #808080;
+
+
+}
+div.hey6{
+    position:fixed;
+    bottom:40px;
+    right:0;
+    width: absolute;
+height: absolute;
+background-color:   #808080;
+box-shadow: 0px 0px 10px 10px   #808080;
+}
+div.text {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    co
+}
+
+
+</style>
+
+<body background="index.jpg">
+<br><br>
+<div id = "hey1" class="hey1" style="display:none;"></div>
+<center><div id="hey2" class="hey2" style="display:none;"></div></center>
+<div id="hey3" class="hey3" style="display:none;"></div>
+<div style="color:#FFFFFF" class="text">
+<h1>Javascript: lights turn on/off</h1>
+<h4>(To turn it on click on top side of button and to turn it off click on down side of the button)</h4>
+</div>
+
+<div class = "hey4" style="background-color:  #808080; color:white; padding:20px;">
+<div id="demo1" class = "demo1" onclick="myFunction1()" style="background-color: white; color:white; padding:20px;">
+On
+</div>
+<div id="demo2" onclick="myFunction2()" style="background-color: white; color:black; padding:20px;">
+Off
+</div>
+</div>
+
+
+<div class = "hey5" style="background-color:  #808080; color:white; padding:20px;">
+<div id="demo3" onclick="myFunction3()" style="background-color: white; color:white; padding:20px;">
+On
+</div>
+<div id="demo4" onclick="myFunction4()" style="background-color: white; color:black; padding:20px;">
+Off
+</div>
+</div>
+
+
+<div class = "hey6" style="background-color:  #808080; color:white; padding:20px;">
+<div  id="demo5" onclick="myFunction5()" style="background-color: white; color:white; padding:20px;">
+On
+</div>
+<div  id="demo6" onclick="myFunction6()" style="background-color: white; color:black; padding:20px;">
+Off
+</div>
+</div>
+</body>
+<script>
+function myFunction1() {
+    document.getElementById("demo2").style.background = "black";
+    document.getElementById("demo1").style.background = "black";
+    document.getElementById("hey1").style.display = 'inline';
+}
+function myFunction2() {
+    document.getElementById("demo1").style.background = "white";
+    document.getElementById("demo2").style.background = "white";
+    document.getElementById("hey1").style.display = 'none';
+}
+function myFunction3() {
+    document.getElementById("demo4").style.background = "black";
+    document.getElementById("demo3").style.background = "black";
+    document.getElementById("hey2").style.display = 'inline';
+}
+function myFunction4() {
+    document.getElementById("demo3").style.background = "white";
+    document.getElementById("demo4").style.background = "white";
+    document.getElementById("hey2").style.display = 'none';
+}
+function myFunction5() {
+    document.getElementById("demo6").style.background = "black";
+    document.getElementById("demo5").style.background = "black";
+    document.getElementById("hey3").style.display = 'inline';
+}
+function myFunction6() {
+    document.getElementById("demo5").style.background = "white";
+    document.getElementById("demo6").style.background = "white";
+    document.getElementById("hey3").style.display = 'none';
+}
+</script>
+
+</html>
