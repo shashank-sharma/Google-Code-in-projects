@@ -1,6 +1,6 @@
 print ("Welcome")
 
-age = input("Please enter your age : ")
+age = int(input("Please enter your age : "))
 print (age)
 if age < 18:
   print ("You are a Child")
