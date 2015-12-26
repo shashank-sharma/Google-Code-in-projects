@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Get your Geolocation</title>
 </head>
 <style>
 
@@ -48,11 +48,12 @@ function Position(position) {
     document.getElementById("here").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
    // if(typeof(Storage) !== "undefined") {
-        //if (localStorage.clickcount) {
+        if (localStorage.clickcount) {
             localStorage.click = localStorage.click + "<br>Latitude :" + position.coords.latitude + "<br>Altitude :" + position.coords.longitude + "<br>";
-     //   } else {
-          //  localStorage.clickcount = 1;
-      //  }
+        } else {
+            localStorage.clickcount = "";
+            localStorage.click = localStorage.click + "<br>Latitude :" + position.coords.latitude + "<br>Altitude :" + position.coords.longitude + "<br>";
+        }
         document.getElementById("result").innerHTML = localStorage.click;
     //} else {
       //  document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
