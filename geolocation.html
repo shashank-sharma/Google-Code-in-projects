@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+
+	div.hey4{
+    position:fixed;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-90%);
+    width: 40%;
+height: 20%;
+background-color:   #808080;
+box-shadow: 0px 0px 100px 40px   #808080;
+}
+h1.set{
+    position: fixed;
+	bottom: 0;
+	top:  70%;
+    left: 35%;
+}
+</style>
+<body bgcolor = "black">
+<div class = "hey4" style="background-color:  black; color:white; padding:5%;">
+<div id="demo2" class = "hey11" onclick="Geolocation()" style="background-color: white; color:black; padding:5%;">
+<center><h1>Get my Geolocation</h1></center>
+</div>
+</div>
+
+<script>
+       
+function Geolocation() 
+{
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(Position);
+
+    } 
+    else {
+        document.getElementById("here").innerHTML = "Error";
+    }
+
+}
+function Position(position) {
+    document.getElementById("here").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+
+   // if(typeof(Storage) !== "undefined") {
+        //if (localStorage.clickcount) {
+            localStorage.click = localStorage.click + "<br>Latitude :" + position.coords.latitude + "<br>Altitude :" + position.coords.longitude + "<br>";
+     //   } else {
+          //  localStorage.clickcount = 1;
+      //  }
+        document.getElementById("result").innerHTML = localStorage.click;
+    //} else {
+      //  document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+   // }
+}
+
+function clears()
+{
+	localStorage.click = "";
+	history.go(0);
+}
+</script>
+<h1 class = "set" style="color:white" id="here">
+Latitude:<br>
+Longitude:<br><br>
+(Click on white area)
+</h1>
+<p><button onclick="clears()" type="button">Clear History</button></p>
+<div id="result" style="color:white">Your location History :</div>
+</body>
+</html>
