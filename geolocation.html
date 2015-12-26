@@ -31,7 +31,7 @@ h1.set{
 </div>
 
 <script>
-       
+    //localStorage.clear();  
 function Geolocation() 
 {
     if (navigator.geolocation) {
@@ -48,10 +48,10 @@ function Position(position) {
     document.getElementById("here").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
 
    // if(typeof(Storage) !== "undefined") {
-        if (localStorage.clickcount) {
+        if (localStorage.click) {
             localStorage.click = localStorage.click + "<br>Latitude :" + position.coords.latitude + "<br>Altitude :" + position.coords.longitude + "<br>";
         } else {
-            localStorage.clickcount = "";
+            localStorage.click = "";
             localStorage.click = localStorage.click + "<br>Latitude :" + position.coords.latitude + "<br>Altitude :" + position.coords.longitude + "<br>";
         }
         document.getElementById("result").innerHTML = localStorage.click;
