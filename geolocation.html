@@ -36,13 +36,20 @@ function Geolocation()
 {
     if (navigator.geolocation) {
 
-        navigator.geolocation.getCurrentPosition(Position);
+        navigator.geolocation.getCurrentPosition(Position,showError);
 
     } 
     else {
         document.getElementById("here").innerHTML = "Error";
     }
 
+}
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            document.getElementById("here").innerHTML = "ERROR: Request for Geolocation Denied"
+            break;
+    }
 }
 function Position(position) {
     document.getElementById("here").innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
