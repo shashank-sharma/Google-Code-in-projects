@@ -1,6 +1,5 @@
 var selected = null, x_pos = 0, y_pos = 0, x_elem = 0, y_elem = 0;
 var locationCount=1; 
-var isMute = false;
 var arrSquares, gameOver, lastUsed, multPossible;
 var lastPlayer="null";
 
@@ -13,7 +12,6 @@ function newGame()
     makeMouseUpDetectable();
     lastPlayer="null";
     locationCount=1;
-    isMute = false;
     multPossible = false;
 }
 
@@ -21,7 +19,7 @@ function drawBoard()
 {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    ctx.fillStyle = "#FF0000";
+    ctx.fillStyle = "#C0C0C0";
     ctx.fillRect(0,0,800,800);
     for(var i=0;i<=800;i+=200)
     {
@@ -38,19 +36,6 @@ function drawBoard()
             ctx.fillStyle = "#000000";
             ctx.fillRect(i,w,100,100);
         }
-    }
-    ctx.strokeStyle = "#98999A";
-    for(var i=100;i<=800;i+=100)
-    {
-        ctx.moveTo(i,0);
-        ctx.lineTo(i,800);
-        ctx.stroke();
-    }
-    for(var i=100;i<=800;i+=100)
-    {
-        ctx.moveTo(0,i);
-        ctx.lineTo(800,i);
-        ctx.stroke();
     }
 }
 
@@ -96,13 +81,13 @@ function changePieces()
             {
                 if(i<3)
                 {
-                    document.getElementById((i+'a'+w)).className='inline icon red';
-                    arrSquares[i][w].type='red';
+                    document.getElementById((i+'a'+w)).className='inline icon orange';
+                    arrSquares[i][w].type='orange';
                 }
                 else if(i>4)
                 {
-                    document.getElementById((i+'a'+w)).className='inline icon black';
-                    arrSquares[i][w].type='black';
+                    document.getElementById((i+'a'+w)).className='inline icon blue';
+                    arrSquares[i][w].type='blue';
                 }
             }
         }
@@ -154,42 +139,39 @@ function movePiece(idName, XCoor, YCoor)
         {
             if((Math.abs(toRow-fromRow)<2)&&(Math.abs(toCol-fromCol)<2)&&(fromType.substring(0,1)!=lastPlayer.substring(0,1)))
             {
-                if(!(((fromType=='red')&&(toRow<fromRow))||((fromType=='black')&&(toRow>fromRow))))
+                if(!(((fromType=='orange')&&(toRow<fromRow))||((fromType=='blue')&&(toRow>fromRow))))
                 {
                     arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                     arrSquares[fromRow][fromCol].type = 'empty';
-                    playSound('Knock');
                     lastUsed = toCoorString;
                     lastPlayer = arrSquares[toRow][toCol].type;
                     multPossible=false;
                 }
             }
-            else if(((multPossible&&(lastUsed==(fromCol+'a'+fromRow))&&avType.substring(0,1)!=fromType.substring(0,1))||((fromType).substring(0,1)!=lastPlayer.substring(0,1)))&&(Math.abs(toRow-fromRow)<3)&&(Math.abs(toCol-fromCol)<3)&&((avType=='red')||(avType=='redK')||(avType=='black')||(avType=='blackK')))
+            else if(((multPossible&&(lastUsed==(fromCol+'a'+fromRow))&&avType.substring(0,1)!=fromType.substring(0,1))||((fromType).substring(0,1)!=lastPlayer.substring(0,1)))&&(Math.abs(toRow-fromRow)<3)&&(Math.abs(toCol-fromCol)<3)&&((avType=='orange')||(avType=='orangeK')||(avType=='blue')||(avType=='blueK')))
             {   
-                if((!(((fromType=='red')&&(toRow<fromRow))||((fromType=='black')&&(toRow>fromRow))))||(multPossible&&(lastUsed==(fromCol+'a'+fromRow))))
+                if((!(((fromType=='orange')&&(toRow<fromRow))||((fromType=='blue')&&(toRow>fromRow))))||(multPossible&&(lastUsed==(fromCol+'a'+fromRow))))
                 {
-                    if(fromType=='black'||fromType=='blackK')
+                    if(fromType=='blue'||fromType=='blueK')
                     {
-                        if(avType=='red'||avType=='redK')
+                        if(avType=='orange'||avType=='orangeK')
                         {
                             arrSquares[avRow][avCol].type='empty';
                         }
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
-                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible = true;
                     }
                     else
                     {
-                       if(avType=='black'||avType=='blackK')
+                       if(avType=='blue'||avType=='blueK')
                         {
                             arrSquares[avRow][avCol].type='empty';
                         } 
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
-                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible=true;
@@ -216,15 +198,13 @@ function checkKing()
 {
     for(var w=0;w<8;w++)
     {
-        if(arrSquares[7][w].type=='red')
+        if(arrSquares[7][w].type=='orange')
         {
-            arrSquares[7][w].type='redK';
-            playSound('King');
+            arrSquares[7][w].type='orangeK';
         }
-        if(arrSquares[0][w].type=='black')
+        if(arrSquares[0][w].type=='blue')
         {
-            arrSquares[0][w].type='blackK';
-            playSound('King');
+            arrSquares[0][w].type='blueK';
         }
     }
 }
@@ -241,48 +221,34 @@ function replacePieces()
 }
 function checkWin()
 {
-    var redCount=0, blackCount=0;
+    var orangeCount=0, blueCount=0;
     for(var i=0; i<8; i++)
     {
         for(var w=0; w<8; w++)
         {
             var type = arrSquares[i][w].type;
-            if((type=='red')||(type=='redK'))
+            if((type=='orange')||(type=='orangeK'))
             {
-                redCount++;
+                orangeCount++;
             }
-            if((type=='black')||(type=='blackK'))
+            if((type=='blue')||(type=='blueK'))
             {
-                blackCount++;
+                blueCount++;
             }
         }
     }
-    if(redCount<1)
+    if(orangeCount<1)
     {
-        alert("BLACK WINS!!!");
+        alert("BLUE WINS!");
         gameOver = true;
     }
-    else if(blackCount<1)
+    else if(blueCount<1)
     {
-        alert("RED WINS!!!");
+        alert("ORANGE WINS!!!");
         gameOver = true;
     }
 }
 
-function mute()
-{
-    var holder = document.getElementById("soundHolder");
-    if(isMute)
-    {
-       holder.style.backgroundPosition = "0px 0px";
-    }
-    else
-    {
-       holder.style.backgroundPosition = "60px 0px";
-    }
-    isMute = !isMute;
-    playSound("match");
-}
 
 function _drag_init(elem) {
     selected = elem;
