@@ -42,7 +42,6 @@ display: inline-block;
     background-position: -20 -450;
 }
 #title{
-    font-size: -webkit-xxx-large;
     font-style: oblique;
     font-family: fantasy;
 }
@@ -63,5 +62,4 @@ position: relative;
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
 }
