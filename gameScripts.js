@@ -1,5 +1,6 @@
 var selected = null, x_pos = 0, y_pos = 0, x_elem = 0, y_elem = 0;
 var locationCount=1; 
+var isMute = false;
 var arrSquares, gameOver, lastUsed, multPossible;
 var lastPlayer="null";
 
@@ -12,6 +13,7 @@ function newGame()
     makeMouseUpDetectable();
     lastPlayer="null";
     locationCount=1;
+    isMute = false;
     multPossible = false;
 }
 
@@ -19,7 +21,7 @@ function drawBoard()
 {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
-    ctx.fillStyle = "#C0C0C0";
+    ctx.fillStyle = "#FF0000";
     ctx.fillRect(0,0,800,800);
     for(var i=0;i<=800;i+=200)
     {
@@ -36,6 +38,19 @@ function drawBoard()
             ctx.fillStyle = "#000000";
             ctx.fillRect(i,w,100,100);
         }
+    }
+    ctx.strokeStyle = "#98999A";
+    for(var i=100;i<=800;i+=100)
+    {
+        ctx.moveTo(i,0);
+        ctx.lineTo(i,800);
+        ctx.stroke();
+    }
+    for(var i=100;i<=800;i+=100)
+    {
+        ctx.moveTo(0,i);
+        ctx.lineTo(800,i);
+        ctx.stroke();
     }
 }
 
@@ -81,13 +96,13 @@ function changePieces()
             {
                 if(i<3)
                 {
-                    document.getElementById((i+'a'+w)).className='inline icon orange';
-                    arrSquares[i][w].type='orange';
+                    document.getElementById((i+'a'+w)).className='inline icon red';
+                    arrSquares[i][w].type='red';
                 }
                 else if(i>4)
                 {
-                    document.getElementById((i+'a'+w)).className='inline icon blue';
-                    arrSquares[i][w].type='blue';
+                    document.getElementById((i+'a'+w)).className='inline icon black';
+                    arrSquares[i][w].type='black';
                 }
             }
         }
@@ -139,39 +154,42 @@ function movePiece(idName, XCoor, YCoor)
         {
             if((Math.abs(toRow-fromRow)<2)&&(Math.abs(toCol-fromCol)<2)&&(fromType.substring(0,1)!=lastPlayer.substring(0,1)))
             {
-                if(!(((fromType=='orange')&&(toRow<fromRow))||((fromType=='blue')&&(toRow>fromRow))))
+                if(!(((fromType=='red')&&(toRow<fromRow))||((fromType=='black')&&(toRow>fromRow))))
                 {
                     arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                     arrSquares[fromRow][fromCol].type = 'empty';
+                    playSound('Knock');
                     lastUsed = toCoorString;
                     lastPlayer = arrSquares[toRow][toCol].type;
                     multPossible=false;
                 }
             }
-            else if(((multPossible&&(lastUsed==(fromCol+'a'+fromRow))&&avType.substring(0,1)!=fromType.substring(0,1))||((fromType).substring(0,1)!=lastPlayer.substring(0,1)))&&(Math.abs(toRow-fromRow)<3)&&(Math.abs(toCol-fromCol)<3)&&((avType=='orange')||(avType=='orangeK')||(avType=='blue')||(avType=='blueK')))
+            else if(((multPossible&&(lastUsed==(fromCol+'a'+fromRow))&&avType.substring(0,1)!=fromType.substring(0,1))||((fromType).substring(0,1)!=lastPlayer.substring(0,1)))&&(Math.abs(toRow-fromRow)<3)&&(Math.abs(toCol-fromCol)<3)&&((avType=='red')||(avType=='redK')||(avType=='black')||(avType=='blackK')))
             {   
-                if((!(((fromType=='orange')&&(toRow<fromRow))||((fromType=='blue')&&(toRow>fromRow))))||(multPossible&&(lastUsed==(fromCol+'a'+fromRow))))
+                if((!(((fromType=='red')&&(toRow<fromRow))||((fromType=='black')&&(toRow>fromRow))))||(multPossible&&(lastUsed==(fromCol+'a'+fromRow))))
                 {
-                    if(fromType=='blue'||fromType=='blueK')
+                    if(fromType=='black'||fromType=='blackK')
                     {
-                        if(avType=='orange'||avType=='orangeK')
+                        if(avType=='red'||avType=='redK')
                         {
                             arrSquares[avRow][avCol].type='empty';
                         }
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
+                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible = true;
                     }
                     else
                     {
-                       if(avType=='blue'||avType=='blueK')
+                       if(avType=='black'||avType=='blackK')
                         {
                             arrSquares[avRow][avCol].type='empty';
                         } 
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
+                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible=true;
@@ -198,13 +216,15 @@ function checkKing()
 {
     for(var w=0;w<8;w++)
     {
-        if(arrSquares[7][w].type=='orange')
+        if(arrSquares[7][w].type=='red')
         {
-            arrSquares[7][w].type='orangeK';
+            arrSquares[7][w].type='redK';
+            playSound('King');
         }
-        if(arrSquares[0][w].type=='blue')
+        if(arrSquares[0][w].type=='black')
         {
-            arrSquares[0][w].type='blueK';
+            arrSquares[0][w].type='blackK';
+            playSound('King');
         }
     }
 }
@@ -221,34 +241,67 @@ function replacePieces()
 }
 function checkWin()
 {
-    var orangeCount=0, blueCount=0;
+    var redCount=0, blackCount=0;
     for(var i=0; i<8; i++)
     {
         for(var w=0; w<8; w++)
         {
             var type = arrSquares[i][w].type;
-            if((type=='orange')||(type=='orangeK'))
+            if((type=='red')||(type=='redK'))
             {
-                orangeCount++;
+                redCount++;
             }
-            if((type=='blue')||(type=='blueK'))
+            if((type=='black')||(type=='blackK'))
             {
-                blueCount++;
+                blackCount++;
             }
         }
     }
-    if(orangeCount<1)
+    if(redCount<1)
     {
-        alert("BLUE WINS!");
+        alert("BLACK WINS!!!");
         gameOver = true;
     }
-    else if(blueCount<1)
+    else if(blackCount<1)
     {
-        alert("ORANGE WINS!!!");
+        alert("RED WINS!!!");
         gameOver = true;
     }
 }
 
+function mute()
+{
+    var holder = document.getElementById("soundHolder");
+    if(isMute)
+    {
+       holder.style.backgroundPosition = "0px 0px";
+    }
+    else
+    {
+       holder.style.backgroundPosition = "60px 0px";
+    }
+    isMute = !isMute;
+    playSound("match");
+}
+
+function playSound(soundType)
+{
+    if(!isMute)
+    {
+        if(soundType == "match")
+        {
+            matchAudio.play();
+        }
+        else if(soundType == 'Knock')
+        {
+           knockAudio.play(); 
+        }
+        else if(soundType == "King")
+        {
+            kingAudio.play(); 
+        }
+    }
+}
 
 function _drag_init(elem) {
     selected = elem;
