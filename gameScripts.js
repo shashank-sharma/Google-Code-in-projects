@@ -1,6 +1,5 @@
 var selected = null, x_pos = 0, y_pos = 0, x_elem = 0, y_elem = 0;
 var locationCount=1; 
-var isMute = false;
 var arrSquares, gameOver, lastUsed, multPossible;
 var lastPlayer="null";
 
@@ -13,7 +12,6 @@ function newGame()
     makeMouseUpDetectable();
     lastPlayer="null";
     locationCount=1;
-    isMute = false;
     multPossible = false;
 }
 
@@ -158,7 +156,6 @@ function movePiece(idName, XCoor, YCoor)
                 {
                     arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                     arrSquares[fromRow][fromCol].type = 'empty';
-                    playSound('Knock');
                     lastUsed = toCoorString;
                     lastPlayer = arrSquares[toRow][toCol].type;
                     multPossible=false;
@@ -176,7 +173,6 @@ function movePiece(idName, XCoor, YCoor)
                         }
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
-                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible = true;
@@ -189,7 +185,6 @@ function movePiece(idName, XCoor, YCoor)
                         } 
                         arrSquares[toRow][toCol].type = arrSquares[fromRow][fromCol].type;
                         arrSquares[fromRow][fromCol].type = 'empty';
-                        playSound('Knock');
                         lastUsed = toCoorString;
                         lastPlayer = arrSquares[toRow][toCol].type;
                         multPossible=true;
@@ -219,12 +214,10 @@ function checkKing()
         if(arrSquares[7][w].type=='red')
         {
             arrSquares[7][w].type='redK';
-            playSound('King');
         }
         if(arrSquares[0][w].type=='black')
         {
             arrSquares[0][w].type='blackK';
-            playSound('King');
         }
     }
 }
@@ -266,40 +259,6 @@ function checkWin()
     {
         alert("RED WINS!!!");
         gameOver = true;
-    }
-}
-
-function mute()
-{
-    var holder = document.getElementById("soundHolder");
-    if(isMute)
-    {
-       holder.style.backgroundPosition = "0px 0px";
-    }
-    else
-    {
-       holder.style.backgroundPosition = "60px 0px";
-    }
-    isMute = !isMute;
-    playSound("match");
-}
-
-function playSound(soundType)
-{
-    if(!isMute)
-    {
-        if(soundType == "match")
-        {
-            matchAudio.play();
-        }
-        else if(soundType == 'Knock')
-        {
-           knockAudio.play(); 
-        }
-        else if(soundType == "King")
-        {
-            kingAudio.play(); 
-        }
     }
 }
 
