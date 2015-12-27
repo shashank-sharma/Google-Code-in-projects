@@ -3,25 +3,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     </head>
     <link rel="stylesheet" type="text/css" href="gameStyles.css"/>
-    <div id="buttons">
-                <center>
-                    <button onclick="newGame()">
-                       New Game
-                    </button>
-                </center>
-            </div>
-            <h1>Lets Play Checkers ...</h1>
     <center>
         <div id="game">
             <div id="gameBoard" class='noselect'>
                 <div id="options">
                     <div id="scoreHolder" class="inline">
+                        <span id='title'>Checkers!</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <div id="soundHolder" class="inline" onclick="mute()">
+                        </div>
                     </div>
                 </div><br>
                 <div id="board">
                     
-                    <canvas id="myCanvas" class='inline' width="800" height="800" style="border:3px solid #fff;">
+                    <canvas id="myCanvas" class='inline' width="800" height="800" style="border:3px solid #98999A;">
                         Your browser does not support the HTML5 canvas tag. <br>
+                        Try using a more modern browser, like <a href="https://www.google.com/chrome/browser/">Google Chrome</a>,to play the game.
                     </canvas>
                     <div id="iconHolder" background-image='checkers.png'>
 
@@ -29,6 +25,13 @@
                 </div>
             </div>
             <br>
+            <div id="buttons">
+                <center>
+                    <button onclick="newGame()">
+                        New Game
+                    </button>
+                </center>
+            </div>
         </div>
     </center>
     <script src="gameScripts.js">
