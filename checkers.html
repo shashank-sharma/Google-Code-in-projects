@@ -1,0 +1,39 @@
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    </head>
+    <link rel="stylesheet" type="text/css" href="gameStyles.css"/>
+    <div id="buttons">
+                <center>
+                    <button onclick="newGame()">
+                       New Game
+                    </button>
+                </center>
+            </div>
+            <h1>Lets Play Checkers ...</h1>
+    <center>
+        <div id="game">
+            <div id="gameBoard" class='noselect'>
+                <div id="options">
+                    <div id="scoreHolder" class="inline">
+                    </div>
+                </div><br>
+                <div id="board">
+                    
+                    <canvas id="myCanvas" class='inline' width="800" height="800" style="border:3px solid #fff;">
+                        Your browser does not support the HTML5 canvas tag. <br>
+                    </canvas>
+                    <div id="iconHolder" background-image='checkers.png'>
+
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </center>
+    <script src="gameScripts.js">
+    </script>
+    <script>
+        newGame();
+    </script>
+</html>
