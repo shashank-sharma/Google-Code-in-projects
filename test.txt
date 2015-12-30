@@ -1,0 +1,6 @@
+def test_collision(self, paddle):
+  		if (self.y == paddle.y) and (self.x >= paddle.x) and (self.x <= paddle.x + paddle.width) and (!self.hitPaddle):
+     			self.dy *= -1
+     			self.hitPaddle = true
+  		else:
+     			self.hitPaddle = false
