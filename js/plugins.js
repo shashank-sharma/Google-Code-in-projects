@@ -20,7 +20,6 @@
         }
     }
 }());
-document.body.style.backgroundColor = "red";
 // Place any jQuery/helper plugins in here.
 
 $( "#clickme" ).click(function() {
@@ -38,4 +37,3 @@ $( "#clickme" ).click(function() {
     // Animation complete.
   });
 });
-
