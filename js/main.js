@@ -577,15 +577,16 @@
 					if((xDif === 1 || xDif === -1) && yDif === 1 && Checkers.justJumped === false){
 						// move one space
 						if(Checkers.move.validMove() === false){
-							document.getElementById("hey").innerHTML = "TRYING";
-							(document.getElementById("container")).style.backgroundColor = "red";
+							(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 							Checkers.selectedPiece[1][0] += xDif
 							Checkers.selectedPiece[1][1]++
 							Checkers.pieceCoordinates[Checkers.selectedPiece[0]] = Checkers.selectedPiece[1];
 							if(Checkers.selectedPiece[1][1] === 7){
+								(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 								Checkers.kings.push(Checkers.selectedPiece[1]);
 							}
 							if(Checkers.selectedPiece[2] === "king"){
+								(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 								Checkers.kings[Checkers.selectedKing[1]][0] += xDif;
 								Checkers.kings[Checkers.selectedKing[1]][1]--
 							}
@@ -599,8 +600,10 @@
 
 						// try to jump
 						if(xDif === 2){
+							(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 							var xPieceCheck = Checkers.clickedTile[0] - 1;
 						} else{
+							(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 							var xPieceCheck = Checkers.clickedTile[0] + 1;
 						}
 
@@ -644,6 +647,7 @@
 														
 							// move one space
 							if(Checkers.move.validMove() === false){
+								(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 								Checkers.selectedPiece[1][0] += xDif;
 								Checkers.selectedPiece[1][1]--
 								Checkers.kings[Checkers.selectedKing[1]][0] += xDif;
@@ -660,8 +664,10 @@
 
 							// try to jump
 							if(xDif === 2){
+								
 								var xPieceCheck = Checkers.clickedTile[0] - 1;
 							} else{
+								(document.getElementById("howto")).style.backgroundColor = "#a784ec";
 								var xPieceCheck = Checkers.clickedTile[0] + 1;
 							}
 
@@ -697,20 +703,22 @@
 					}
 					
 				} else if(Checkers.turn === "red") {
-					document.body.style.background = "#f3f3f3";
+					
 										
 					if((xDif === 1 || xDif === -1) && yDif === -1 && Checkers.justJumped === false){
 						
 						// move one space
 						if(Checkers.move.validMove() === false){
-							(document.getElementById("container")).style.backgroundColor = "black";
+							(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 							Checkers.selectedPiece[1][0] += xDif
 							Checkers.selectedPiece[1][1]--
 							Checkers.pieceCoordinates[Checkers.selectedPiece[0]] = Checkers.selectedPiece[1];
 							if(Checkers.selectedPiece[1][1] === 0){
+								(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 								Checkers.kings.push(Checkers.selectedPiece[1]);
 							}
 							if(Checkers.selectedPiece[2] === "king"){
+								(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 								Checkers.kings[Checkers.selectedKing[1]][0] += xDif;
 								Checkers.kings[Checkers.selectedKing[1]][1]--
 							}
@@ -725,8 +733,10 @@
 
 						// try to jump
 						if(xDif === 2){
+							(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 							var xPieceCheck = Checkers.clickedTile[0] - 1;
 						} else{
+							(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 							var xPieceCheck = Checkers.clickedTile[0] + 1;
 						}
 
@@ -770,6 +780,7 @@
 
 							// move one space
 							if(Checkers.move.validMove() === false){
+								(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 								Checkers.selectedPiece[1][0] += xDif
 								Checkers.selectedPiece[1][1]++
 								Checkers.pieceCoordinates[Checkers.selectedPiece[0]] = Checkers.selectedPiece[1];
@@ -786,6 +797,7 @@
 
 							// try to jump
 							if(xDif === 2){
+								(document.getElementById("howto")).style.backgroundColor = "#21a9ec";
 								var xPieceCheck = Checkers.clickedTile[0] - 1;
 							} else{
 								var xPieceCheck = Checkers.clickedTile[0] + 1;
@@ -831,4 +843,3 @@
 	}; Checkers.init();
 	
 })(jQuery);
-
