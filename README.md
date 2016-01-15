@@ -18,6 +18,7 @@ Links of my all GCI task are as follows:
 ####[Checkers](http://shashank-sharma.github.io/checkers.html)
 ####[Geolocation](http://shashank-sharma.github.io/geolocation.html)
 ####[Kivy Introduction](http://shashank-sharma.github.io/kivy_intro.html)
+####[Golang](http://shashank-sharma.github.io/go.html)
 ####[Lights Turn On/Off](http://shashank-sharma.github.io/lights.html)
 ####[Blog with Jekyll](http://shashank-sharma.github.io/jekyllsite/)
 
