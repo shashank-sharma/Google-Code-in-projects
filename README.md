@@ -2,11 +2,11 @@
 
 All the work done here is a part of my GCI task and you can see all my project link below:
 
+From 10th January I got my academics exam so from that onwards I stopped contributing so these are the only task which I have did so far.
+
 Summary of my blog: In my blog which is mentioned below consist of information about me and all the links about the GCI task which
 I have did with the help of FOSSASIA organization. Special thanks to mentors of FOSSASIA for supporting and helping me 
 to do something which was looking impossible. There are many updates which I have made day-by-day and I hope you will like my page.
-
-From 10th January I got my academics exam so from that onwards I stopped contributing so these are the only task which I have did so far.
 
 Though I am not a professional in working with HTML and CSS but I tried my best to make it attractive.
 
