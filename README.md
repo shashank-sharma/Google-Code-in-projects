@@ -1,4 +1,4 @@
-#Welcome
+# Welcome
 
 All the work done here is a part of my GCI task and you can see all my project link below:
 
@@ -12,19 +12,19 @@ to do something which was looking impossible. There are many updates which I hav
 
 Links of my all GCI task are as follows: 
 
-##[Main blog](http://shashank-sharma.github.io/)
-####[Hangman](https://shashank-sharma.github.io/Google-Code-in-projects/hangman.html)
+## [Main blog](http://shashank-sharma.github.io/)
+#### [Hangman](https://shashank-sharma.github.io/Google-Code-in-projects/hangman.html)
 (In case of Hangman game the UI is not so good. I write the whole js file behind the hangman on my own and at that time I was having 1 day experience only so I was able to make it just working. But still after making that game I got to learn so many things about how javascript works. I was also going to make the UI much attractive but I only focused on .js file only.)
-####[Checkers](https://shashank-sharma.github.io/Google-Code-in-projects/checkers.html)
-####[Geolocation](https://shashank-sharma.github.io/Google-Code-in-projects/geolocation.html)
-####[Kivy Introduction](https://shashank-sharma.github.io/Google-Code-in-projects/kivy_intro.html)
-####[Golang](https://shashank-sharma.github.io/Google-Code-in-projects/go.html)
-####[Lights Turn On/Off](https://shashank-sharma.github.io/Google-Code-in-projects/lights.html)
-####[Blog with Jekyll](https://shashank-sharma.github.io/Google-Code-in-projects/jekyllsite/)
+#### [Checkers](https://shashank-sharma.github.io/Google-Code-in-projects/checkers.html)
+#### [Geolocation](https://shashank-sharma.github.io/Google-Code-in-projects/geolocation.html)
+#### [Kivy Introduction](https://shashank-sharma.github.io/Google-Code-in-projects/kivy_intro.html)
+#### [Golang](https://shashank-sharma.github.io/Google-Code-in-projects/go.html)
+#### [Lights Turn On/Off](https://shashank-sharma.github.io/Google-Code-in-projects/lights.html)
+#### [Blog with Jekyll](https://shashank-sharma.github.io/Google-Code-in-projects/jekyllsite/)
 
 I have also worked for Ubuntu GNOME blog and if you are interested to know about Ubuntu GNOME or how to install Ubuntu GNOME etc.
 You can see my blog here:
 
-###[Ubuntu GNOME Experience](http://ubuntu-gnome-experience.blogspot.in/)
+### [Ubuntu GNOME Experience](http://ubuntu-gnome-experience.blogspot.in/)
 
 
